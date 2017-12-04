@@ -21,4 +21,10 @@ func main() {
 
 	fmt.Println("EUID: ", os.Geteuid())
 	fmt.Println("UID: ", os.Getuid())
+
+	out, err = exec.Command("/usr/sbin/ipmi-sel").Output()
+	fmt.Println(string(out), err)
+
+	out, err = exec.Command("/sbin/iptables", "-L").Output()
+	fmt.Println(string(out), err)
 }
